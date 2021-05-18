@@ -14,7 +14,7 @@ playsound
 ### Quick start
 You can try to run
 #### python test.py.
-You can also watch display.mp4.
+However, limited by the storage capacity, there is no data stored here.
 ### Interface display
 ![image](https://user-images.githubusercontent.com/74940716/118569780-3157e080-b7ad-11eb-9193-4b33a00dc71d.png)
 ![image](https://user-images.githubusercontent.com/74940716/118569792-374dc180-b7ad-11eb-8acf-1b32c6d67c88.png)
