@@ -6,6 +6,10 @@ This code aims at displaying sound event detection integrating sound separation.
 
 We're so glad if you're interested in using it for research purpose or DCASE participation. Please don't hesitate to contact us should you have any question.
 ## How to use
+### Download data
+Please download data from
+https://zenodo.org/deposit/4768738, and unzip it.
+You can watch dispaly.mp4 to understand the whole process
 ### Environment
 PyQt5
 pyqtgraph
