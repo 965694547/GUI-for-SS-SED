@@ -107,46 +107,37 @@ class Ui_Dialog_SS(object):
         self.hunhe.setText(_translate("Dialog", "FUSS混合声源"))
 
     def popWindow_try1(self):
+        #os.remove("stereo_file.wav")
         mode = 1
         num=self.xuhao.value()
-        input = np.load("source.npy")
-        input = input[num*3+mode-1]
-        samplerate = 16000
-        sf.write('stereo_file1.wav', input, samplerate, subtype='PCM_24')
-        playsound("stereo_file1.wav")#在playsound的43行增加winCommand(‘close’, alias)
-        os.remove("stereo_file1.wav")
+        #input = np.load("source.npy")
+        #input = input[num*3+mode-1]
+        #samplerate = 16000
+        #sf.write('stereo_file.wav', input, samplerate, subtype='PCM_24')
+        #playsound("stereo_file.wav",False)#在playsound的43行增加winCommand(‘close’, alias)
         os.system(r"python -m try %d %d" % (mode,num))
+        #playsound("stereo_file.wav", False)
 
     def popWindow_try2(self):
         mode = 2
         num = self.xuhao.value()
-        input = np.load("source.npy")
-        input = input[num * 3 + mode - 1]
-        samplerate = 16000
-        sf.write('stereo_file2.wav', input, samplerate, subtype='PCM_24')
-        playsound("stereo_file2.wav")
-        os.remove("stereo_file2.wav")
-        os.system(r"python -m try %d %d" % (mode,num))
+        os.system(r"python -m try %d %d" % (mode, num))
+
 
     def popWindow_try3(self):
         mode = 3
         num = self.xuhao.value()
-        input = np.load("source.npy")
-        input = input[num * 3 + mode - 1]
-        samplerate = 16000
-        sf.write('stereo_file3.wav', input, samplerate, subtype='PCM_24')
-        playsound("stereo_file3.wav")
-        os.remove("stereo_file3.wav")
-        os.system(r"python -m try %d %d" % (mode,num))
+        os.system(r"python -m try %d %d" % (mode, num))
 
     def popWindow_try4(self):
+        os.remove("stereo_file.wav")
         input = np.load("mix.npy")
         num = self.xuhao.value()
         input = input[num]
         samplerate = 16000
-        sf.write('stereo_file4.wav', input, samplerate, subtype='PCM_24')
-        playsound("stereo_file4.wav")
-        os.remove("stereo_file4.wav")
+        sf.write('stereo_file.wav', input, samplerate, subtype='PCM_24')
+        playsound("stereo_file.wav")
+        os.remove("stereo_file.wav")
 
     '''def update3(self):
         global p5, data5, ptr5, curves

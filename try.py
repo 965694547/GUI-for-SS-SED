@@ -6,8 +6,9 @@ Various methods of drawing scrolling plots.
 import sys
 import numpy as np
 import pyqtgraph as pg
-#import soundfile as sf
-#from playsound import playsound
+import soundfile as sf
+from playsound import playsound
+import os
 from pyqtgraph.Qt import QtCore, QtGui
 #from outdata import output
 import pdb
@@ -20,9 +21,9 @@ win.setWindowTitle('Red:reference Blue:separated source')
 
 
 # 3) Plot in chunks, adding one new plot curve for every 100 samples
-chunkSize = 10000
+chunkSize = 50000
 # Remove chunks after we have 10
-maxChunks = 50
+maxChunks = 100
 startTime = pg.ptime.time()
 win.nextRow()
 p5 = win.addPlot(colspan=2)
@@ -45,9 +46,10 @@ b = np.load("separated.npy")
 #pdb.set_trace
 x = a[xuhao*3+mode-1,:]
 y = b[xuhao*3+mode-1,:]
-#samplerate=16000
-#sf.write('stereo_file.wav', x, samplerate, subtype='PCM_24')
-#playsound("stereo_file.wav")
+samplerate=16000
+os.remove("stereo_file.wav")
+sf.write('stereo_file.wav', x, samplerate, subtype='PCM_24')
+playsound("stereo_file.wav",False)
 
 
 def update3(x,y):
@@ -96,7 +98,7 @@ def update():
     #update4(y)
 timer = pg.QtCore.QTimer()
 timer.timeout.connect(update)
-timer.start(50)
+timer.start(5)
 
 
 if __name__ == '__main__':
